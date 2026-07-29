@@ -1,0 +1,1108 @@
+{% doc %}
+  @prompt
+    Create a **modern, premium, fully responsive Shopify footer section** inspired by high-end eCommerce brands. The footer should be built as a **Shopify Theme Section (`sections/footer.liquid`)** and follow Shopify Online Store 2.0 best practices.
+    
+    ## General Requirements
+    
+    * Build using Shopify Liquid.
+    * Fully responsive for desktop, tablet, and mobile.
+    * Clean, modern, minimal design.
+    * Dark background (#111 or configurable).
+    * White typography with subtle grey secondary text.
+    * Proper spacing and alignment.
+    * Accessible semantic HTML.
+    * Fast loading.
+    * No hardcoded values.
+    * Every visible element should be editable from the Shopify Theme Customizer.
+    
+    ---
+    
+    # Layout
+    
+    Create a **3-column layout**.
+    
+    ### Column 1 - Brand
+    
+    Include:
+    
+    * Uploadable Logo
+    * Adjustable logo width
+    * Store tagline (editable)
+    * Short business description (editable)
+    * Optional copyright text
+    * Social media icons (optional toggle)
+    
+    Settings:
+    
+    * Logo Upload
+    * Logo Width Slider
+    * Brand Description
+    * Show/Hide Social Icons
+    * Social Links
+    
+    ---
+    
+    ### Column 2 - Quick Links
+    
+    Heading:
+    
+    Quick Links
+    
+    Create editable menu links.
+    
+    Support:
+    
+    * Search
+    * Privacy Policy
+    * Refund Policy
+    * Shipping Policy
+    * Terms of Service
+    
+    Requirements:
+    
+    * Menu should be selectable from Shopify Navigation.
+    * Merchant should be able to choose any menu.
+    * Links automatically update.
+    * Hover effect.
+    
+    Settings:
+    
+    * Heading
+    * Navigation Menu Picker
+    
+    ---
+    
+    ### Column 3 - Customer Service
+    
+    Heading:
+    
+    Customer Service
+    
+    Include editable fields:
+    
+    * WhatsApp Number
+    * Email Address
+    * Business Address (optional)
+    * Working Hours
+    * Return Policy Text
+    * Custom Support Text
+    
+    Display icons beside each item.
+    
+    Example layout:
+    
+    📞 WhatsApp us on +92 XXX XXXXXXX
+    
+    ✉ [support@example.com](mailto:support@example.com)
+    
+    📍 Lahore, Pakistan
+    
+    🕒 Mon-Sat 9AM–7PM
+    
+    🔄 7 Days Easy Returns & Exchanges
+    
+    Every field should be optional.
+    
+    ---
+    
+    # Bottom Bar
+    
+    Create another footer row containing:
+    
+    Left:
+    
+    © 2026 Store Name. All Rights Reserved.
+    
+    Right:
+    
+    Payment Method Icons
+    
+    Support:
+    
+    Visa
+    
+    MasterCard
+    
+    Apple Pay
+    
+    Google Pay
+    
+    PayPal
+    
+    COD
+    
+    Merchant can:
+    
+    Toggle payment icons
+    
+    Upload custom payment image
+    
+    Change copyright
+    
+    ---
+    
+    # Design Customization
+    
+    Add Shopify settings for:
+    
+    Background Color
+    
+    Heading Color
+    
+    Text Color
+    
+    Link Color
+    
+    Link Hover Color
+    
+    Divider Color
+    
+    Section Padding Top
+    
+    Section Padding Bottom
+    
+    Content Width
+    
+    Border Radius (optional)
+    
+    ---
+    
+    # Typography
+    
+    Editable:
+    
+    Heading Font Size
+    
+    Text Font Size
+    
+    Font Weight
+    
+    Letter Spacing
+    
+    Line Height
+    
+    ---
+    
+    # Mobile Behaviour
+    
+    Columns should stack vertically.
+    
+    Logo centered.
+    
+    Quick links centered.
+    
+    Customer service centered.
+    
+    Proper spacing between sections.
+    
+    Touch-friendly links.
+    
+    ---
+    
+    # Animations
+    
+    Optional fade-in animation.
+    
+    Smooth hover transitions.
+    
+    Link underline animation.
+    
+    Subtle logo hover.
+    
+    ---
+    
+    # Theme Editor Settings
+    
+    Everything should be editable including:
+    
+    * Logo Upload
+    * Logo Width
+    * Background Color
+    * Heading Color
+    * Text Color
+    * Link Color
+    * Hover Color
+    * Quick Links Menu
+    * Customer Service Heading
+    * WhatsApp Number
+    * Email
+    * Address
+    * Working Hours
+    * Return Text
+    * Copyright
+    * Payment Icons Toggle
+    * Social Icons Toggle
+    * Section Padding
+    * Border Top Toggle
+    * Divider Color
+    
+    ---
+    
+    # Code Requirements
+    
+    Generate:
+    
+    * `sections/footer.liquid`
+    * Complete schema
+    * Proper Shopify settings
+    * Clean Liquid code
+    * CSS scoped to the section
+    * Minimal JavaScript only if necessary
+    * No external libraries
+    * Compatible with Shopify Online Store 2.0
+    
+    ---
+    
+    # Design Style
+    
+    Use a premium design similar to:
+    
+    * Nike
+    * Gymshark
+    * Apple
+    * Allbirds
+    * Fashion Nova
+    
+    The final result should look modern, elegant, highly customizable, and suitable for any professional eCommerce store, allowing merchants to manage every piece of footer content directly from the Shopify Theme Editor without modifying the code.
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-footer-{{ ai_gen_id }} {
+    display: block;
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    {% if section.settings.show_top_border %}
+      border-top: 1px solid {{ section.settings.divider_color }};
+    {% endif %}
+  }
+
+  .ai-footer-container-{{ ai_gen_id }} {
+    max-width: {{ section.settings.content_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-footer-main-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid {{ section.settings.divider_color }};
+  }
+
+  .ai-footer-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-footer-logo-{{ ai_gen_id }} {
+    margin-bottom: 10px;
+  }
+
+  .ai-footer-logo-{{ ai_gen_id }} img {
+    max-width: {{ section.settings.logo_width }}px;
+    height: auto;
+    display: block;
+  }
+
+  .ai-footer-tagline-{{ ai_gen_id }} {
+    font-size: {{ section.settings.heading_font_size }}px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 12px 0;
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+  }
+
+  .ai-footer-description-{{ ai_gen_id }} {
+    font-size: {{ section.settings.text_font_size }}px;
+    line-height: {{ section.settings.line_height }};
+    color: {{ section.settings.text_color }};
+    margin: 0 0 16px 0;
+    opacity: 0.8;
+  }
+
+  .ai-footer-copyright-{{ ai_gen_id }} {
+    font-size: {{ section.settings.text_font_size | minus: 2 }}px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .ai-footer-social-{{ ai_gen_id }} {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: {{ section.settings.text_color }};
+    transition: all 0.3s ease;
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }}:hover {
+    background-color: {{ section.settings.link_hover_color }};
+    transform: translateY(-2px);
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ai-footer-heading-{{ ai_gen_id }} {
+    font-size: {{ section.settings.heading_font_size }}px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 20px 0;
+    letter-spacing: {{ section.settings.letter_spacing }}px;
+  }
+
+  .ai-footer-links-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ai-footer-link-{{ ai_gen_id }} {
+    font-size: {{ section.settings.text_font_size }}px;
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    line-height: {{ section.settings.line_height }};
+  }
+
+  .ai-footer-link-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: {{ section.settings.link_hover_color }};
+    transition: width 0.3s ease;
+  }
+
+  .ai-footer-link-{{ ai_gen_id }}:hover {
+    color: {{ section.settings.link_hover_color }};
+  }
+
+  .ai-footer-link-{{ ai_gen_id }}:hover::after {
+    width: 100%;
+  }
+
+  .ai-footer-contact-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: {{ section.settings.text_font_size }}px;
+    line-height: {{ section.settings.line_height }};
+    color: {{ section.settings.text_color }};
+    margin-bottom: 16px;
+  }
+
+  .ai-footer-contact-icon-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+
+  .ai-footer-contact-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ section.settings.heading_color }};
+  }
+
+  .ai-footer-contact-link-{{ ai_gen_id }} {
+    color: {{ section.settings.link_color }};
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .ai-footer-contact-link-{{ ai_gen_id }}:hover {
+    color: {{ section.settings.link_hover_color }};
+  }
+
+  .ai-footer-bottom-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+  }
+
+  .ai-footer-bottom-text-{{ ai_gen_id }} {
+    font-size: {{ section.settings.text_font_size | minus: 2 }}px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .ai-footer-payment-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ai-footer-payment-icon-{{ ai_gen_id }} {
+    height: 24px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .ai-footer-payment-icon-{{ ai_gen_id }}:hover {
+    opacity: 1;
+  }
+
+  .ai-footer-payment-custom-{{ ai_gen_id }} img {
+    max-height: 30px;
+    width: auto;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-footer-main-{{ ai_gen_id }} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }}:first-child {
+      grid-column: 1 / -1;
+      text-align: center;
+      align-items: center;
+    }
+
+    .ai-footer-logo-{{ ai_gen_id }} img {
+      margin: 0 auto;
+    }
+
+    .ai-footer-social-{{ ai_gen_id }} {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-footer-{{ ai_gen_id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.7 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.7 }}px;
+    }
+
+    .ai-footer-main-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }} {
+      text-align: center;
+      align-items: center;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }}:first-child {
+      grid-column: 1;
+    }
+
+    .ai-footer-links-{{ ai_gen_id }} {
+      align-items: center;
+    }
+
+    .ai-footer-contact-item-{{ ai_gen_id }} {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .ai-footer-bottom-{{ ai_gen_id }} {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 25px;
+    }
+
+    .ai-footer-payment-{{ ai_gen_id }} {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  {% if section.settings.enable_animations %}
+    @keyframes ai-footer-fade-in-{{ ai_gen_id }} {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .ai-footer-column-{{ ai_gen_id }} {
+      animation: ai-footer-fade-in-{{ ai_gen_id }} 0.6s ease-out forwards;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }}:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }}:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .ai-footer-column-{{ ai_gen_id }}:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  {% endif %}
+{% endstyle %}
+
+<footer class="ai-footer-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-footer-container-{{ ai_gen_id }}">
+    <div class="ai-footer-main-{{ ai_gen_id }}">
+      
+      <div class="ai-footer-column-{{ ai_gen_id }}">
+        {% if section.settings.logo != blank %}
+          <div class="ai-footer-logo-{{ ai_gen_id }}">
+            <img
+              src="{{ section.settings.logo | image_url: width: 400 }}"
+              alt="{{ shop.name }}"
+              width="{{ section.settings.logo_width }}"
+              height="auto"
+              loading="lazy"
+            >
+          </div>
+        {% else %}
+          <h2 class="ai-footer-tagline-{{ ai_gen_id }}">{{ shop.name }}</h2>
+        {% endif %}
+
+        {% if section.settings.tagline != blank %}
+          <p class="ai-footer-tagline-{{ ai_gen_id }}">{{ section.settings.tagline }}</p>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="ai-footer-description-{{ ai_gen_id }}">{{ section.settings.description }}</p>
+        {% endif %}
+
+        {% if section.settings.copyright_text != blank %}
+          <p class="ai-footer-copyright-{{ ai_gen_id }}">{{ section.settings.copyright_text }}</p>
+        {% endif %}
+
+        {% if section.settings.show_social_icons %}
+          <div class="ai-footer-social-{{ ai_gen_id }}">
+            {% if section.settings.social_facebook != blank %}
+              <a href="{{ section.settings.social_facebook }}" class="ai-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.social_instagram != blank %}
+              <a href="{{ section.settings.social_instagram }}" class="ai-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.social_twitter != blank %}
+              <a href="{{ section.settings.social_twitter }}" class="ai-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.social_youtube != blank %}
+              <a href="{{ section.settings.social_youtube }}" class="ai-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            {% endif %}
+
+            {% if section.settings.social_tiktok != blank %}
+              <a href="{{ section.settings.social_tiktok }}" class="ai-footer-social-link-{{ ai_gen_id }}" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="ai-footer-column-{{ ai_gen_id }}">
+        {% if section.settings.quick_links_heading != blank %}
+          <h3 class="ai-footer-heading-{{ ai_gen_id }}">{{ section.settings.quick_links_heading }}</h3>
+        {% endif %}
+
+        {% if section.settings.quick_links_menu != blank %}
+          <ul class="ai-footer-links-{{ ai_gen_id }}">
+            {% for link in linklists[section.settings.quick_links_menu].links %}
+              <li>
+                <a href="{{ link.url }}" class="ai-footer-link-{{ ai_gen_id }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <div class="ai-footer-column-{{ ai_gen_id }}">
+        {% if section.settings.customer_service_heading != blank %}
+          <h3 class="ai-footer-heading-{{ ai_gen_id }}">{{ section.settings.customer_service_heading }}</h3>
+        {% endif %}
+
+        {% if section.settings.whatsapp_number != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div>
+              <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: '+', '' | replace: ' ', '' }}" class="ai-footer-contact-link-{{ ai_gen_id }}" target="_blank" rel="noopener">
+                WhatsApp: {{ section.settings.whatsapp_number }}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.email_address != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div>
+              <a href="mailto:{{ section.settings.email_address }}" class="ai-footer-contact-link-{{ ai_gen_id }}">
+                {{ section.settings.email_address }}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.business_address != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>{{ section.settings.business_address }}</div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.working_hours != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <div>{{ section.settings.working_hours }}</div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.return_policy_text != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+            </div>
+            <div>{{ section.settings.return_policy_text }}</div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.custom_support_text != blank %}
+          <div class="ai-footer-contact-item-{{ ai_gen_id }}">
+            <div class="ai-footer-contact-icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div>{{ section.settings.custom_support_text }}</div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-footer-bottom-{{ ai_gen_id }}">
+      <p class="ai-footer-bottom-text-{{ ai_gen_id }}">
+        {% if section.settings.bottom_copyright != blank %}
+          {{ section.settings.bottom_copyright }}
+        {% else %}
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All Rights Reserved.
+        {% endif %}
+      </p>
+
+      {% if section.settings.show_payment_icons %}
+        <div class="ai-footer-payment-{{ ai_gen_id }}">
+          {% if section.settings.custom_payment_image != blank %}
+            <div class="ai-footer-payment-custom-{{ ai_gen_id }}">
+              <img
+                src="{{ section.settings.custom_payment_image | image_url: width: 400 }}"
+                alt="Payment methods"
+                loading="lazy"
+              >
+            </div>
+          {% else %}
+            {% if section.settings.show_visa %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><path fill="#00579F" d="M0 0h48v32H0z"/><path fill="#FFF" d="M19.8 21.3l1.9-11.5h3l-1.9 11.5h-3zm13.7-11.2c-.6-.2-1.5-.5-2.6-.5-2.9 0-4.9 1.5-4.9 3.6 0 1.6 1.4 2.4 2.5 3 1.1.5 1.5.9 1.5 1.4 0 .7-.9 1.1-1.7 1.1-1.1 0-1.7-.2-2.7-.6l-.4-.2-.4 2.3c.7.3 2 .6 3.3.6 3.1 0 5.1-1.5 5.1-3.8 0-1.2-.7-2.2-2.4-3-1-.5-1.6-.9-1.6-1.4 0-.5.5-1 1.7-1 1 0 1.7.2 2.2.4l.3.1.4-2.3-.3-.1zm5.9-1.3h-2.3c-.7 0-1.3.2-1.6.9l-4.6 10.6h3.1l.6-1.7h3.8l.4 1.7h2.7l-2.4-11.5h.3zm-3.6 7.4l1.6-4.2.9 4.2h-2.5zM18.2 9.8l-3 7.9-.3-1.6c-.5-1.8-2.2-3.7-4.1-4.7l2.7 9.9h3.1l4.7-11.5h-3.1z"/><path fill="#FAA61A" d="M9.6 9.8H4.2L4 10c3.7.9 6.1 3.1 7.1 5.8l-1-4.9c-.2-.7-.7-.9-1.4-1.1h.9z"/></svg>
+            {% endif %}
+
+            {% if section.settings.show_mastercard %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><path fill="#EB001B" d="M18.5 6.5h11v19h-11z"/><path fill="#F79E1B" d="M19.2 16c0-3.9 1.8-7.4 4.6-9.7-2.1-1.6-4.6-2.6-7.4-2.6C9.8 3.7 4 9.5 4 16.5S9.8 29.3 16.4 29.3c2.8 0 5.4-1 7.4-2.6-2.8-2.3-4.6-5.8-4.6-9.7z"/><path fill="#FF5F00" d="M43.8 16c0 7-5.8 12.8-12.4 12.8-2.8 0-5.4-1-7.4-2.6 2.8-2.3 4.6-5.8 4.6-9.7s-1.8-7.4-4.6-9.7c2.1-1.6 4.6-2.6 7.4-2.6 6.6 0 12.4 5.8 12.4 12.8z"/></svg>
+            {% endif %}
+
+            {% if section.settings.show_apple_pay %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><rect width="48" height="32" rx="4" fill="#000"/><path fill="#FFF" d="M10.3 11.8c-.3.4-.8.7-1.3.6-.1-.5.1-1 .4-1.3.3-.4.8-.7 1.2-.7.1.5 0 1-.3 1.4zm.3.5c-.7 0-1.2.4-1.5.4s-.8-.4-1.4-.4c-.7 0-1.4.4-1.7 1.1-.8 1.3-.2 3.3.5 4.4.4.5.8 1.1 1.4 1.1.5 0 .7-.4 1.4-.4.6 0 .8.4 1.4.4.6 0 1-.5 1.4-1.1.4-.6.6-1.2.6-1.2s-1.2-.5-1.2-1.8c0-1.1.9-1.6.9-1.6s-.5-.8-1.3-.8l-.5-.1zm5.9-1.7v7.2h1.1v-2.5h1.5c1.4 0 2.3-.9 2.3-2.3s-.9-2.4-2.3-2.4h-2.6zm1.1 1h1.4c1 0 1.5.5 1.5 1.4s-.5 1.4-1.5 1.4h-1.4v-2.8zm5.5 6.3c.7 0 1.3-.4 1.6-1h.1v.9h1v-4.2c0-.9-.7-1.5-1.9-1.5-1.1 0-1.9.6-2 1.4h1c.1-.4.4-.6.9-.6.6 0 .9.3.9.8v.4l-1.2.1c-1.1.1-1.7.5-1.7 1.3 0 .8.6 1.4 1.5 1.4h-.2zm.3-.9c-.5 0-.9-.3-.9-.7 0-.4.3-.6.9-.7l1.1-.1v.4c0 .6-.5 1.1-1.1 1.1zm3.3 2.6c1.1 0 1.6-.4 2.1-1.6l2-5.6h-1.1l-1.4 4.5h-.1l-1.4-4.5h-1.2l1.9 5.3-.1.3c-.2.5-.4.7-.8.7-.1 0-.2 0-.3-.1v.9c.1.1.3.1.4.1z"/></svg>
+            {% endif %}
+
+            {% if section.settings.show_google_pay %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><rect width="48" height="32" rx="4" fill="#FFF"/><path fill="#5F6368" d="M22.3 16.7v3.6h-1.4v-9.1h3.7c.9 0 1.7.3 2.3.9.6.6.9 1.4.9 2.3s-.3 1.7-.9 2.3c-.6.6-1.4.9-2.3.9h-2.3v.1zm0-5.1v3.7h2.4c.6 0 1.1-.2 1.5-.6.4-.4.6-.9.6-1.5s-.2-1.1-.6-1.5c-.4-.4-.9-.6-1.5-.6h-2.4v.5zm9.3 1.5c1.1 0 2 .4 2.7 1.1.7.7 1.1 1.7 1.1 2.8v5h-1.3v-1.1h-.1c-.6.9-1.4 1.3-2.4 1.3-.9 0-1.6-.3-2.2-.8-.6-.5-.9-1.2-.9-2s.3-1.5.9-2c.6-.5 1.3-.8 2.2-.8.8 0 1.5.2 2 .6v-.4c0-.6-.2-1.1-.7-1.5-.4-.4-1-.6-1.6-.6-.9 0-1.6.4-2.1 1.1l-1.2-.7c.7-1.1 1.8-1.6 3.2-1.6l.4-.4zm-2 5.8c0 .4.2.8.5 1.1.4.3.8.5 1.3.5.7 0 1.3-.3 1.8-.8.5-.5.8-1.1.8-1.8-.4-.4-1.1-.6-1.9-.6-.6 0-1.1.2-1.5.5-.4.3-.6.7-.6 1.2l-.4-.1zm9.8-9.7h1.4v13.1h-1.4V9.2z"/><path fill="#4285F4" d="M17.5 14.1c0-.4 0-.8-.1-1.2H12v2.3h3.1c-.1.7-.6 1.4-1.2 1.8v1.5h1.9c1.1-1 1.7-2.5 1.7-4.4z"/><path fill="#34A853" d="M12 18.9c1.6 0 3-.5 4-1.4l-1.9-1.5c-.5.4-1.2.6-2.1.6-1.6 0-3-1.1-3.5-2.5H6.6v1.5c1 2 3 3.3 5.4 3.3z"/><path fill="#FBBC04" d="M8.5 14.1c-.3-.7-.3-1.5 0-2.2v-1.5H6.6c-1 2-1 4.3 0 6.3l1.9-1.5v-1.1z"/><path fill="#EA4335" d="M12 10.4c.9 0 1.7.3 2.3.9l1.7-1.7C15 8.6 13.6 8 12 8c-2.4 0-4.4 1.3-5.4 3.3l1.9 1.5c.5-1.4 1.9-2.5 3.5-2.5v.1z"/></svg>
+            {% endif %}
+
+            {% if section.settings.show_paypal %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><path fill="#003087" d="M18.7 9.5h-4.1c-.3 0-.5.2-.6.5l-1.7 10.8c0 .2.1.4.3.4h1.9c.3 0 .5-.2.6-.5l.5-2.9c.1-.3.3-.5.6-.5h1.4c2.8 0 4.5-1.4 4.9-4.1.2-1.2 0-2.1-.6-2.8-.6-.7-1.7-1.1-3.2-1.1v.2zm.5 4c-.2 1.4-1.3 1.4-2.4 1.4h-.6l.4-2.6c0-.2.2-.3.4-.3h.3c.8 0 1.6 0 2 .5.2.3.3.7.2 1.2l-.3-.2zm11.5 0h-1.9c-.2 0-.4.1-.4.3l-.1.6-.2-.3c-.5-.7-1.6-1-2.7-1-2.5 0-4.7 1.9-5.1 4.6-.2 1.4.1 2.7.8 3.6.7.8 1.6 1.2 2.7 1.2 1.9 0 3-1.2 3-1.2l-.1.6c0 .2.1.4.3.4h1.7c.3 0 .5-.2.6-.5l1.1-6.9c0-.2-.1-.4-.3-.4h-.4zm-2.6 4c-.2 1.3-1.2 2.2-2.5 2.2-.6 0-1.1-.2-1.5-.6-.3-.4-.5-1-.4-1.6.2-1.3 1.2-2.2 2.5-2.2.6 0 1.1.2 1.4.6.4.4.5 1 .5 1.6z"/><path fill="#009CDE" d="M35.9 9.5h-1.9c-.2 0-.4.1-.5.3l-2.9 4.3-1.2-4.1c-.1-.3-.3-.5-.6-.5h-1.9c-.2 0-.4.2-.3.5l2.3 6.8-2.2 3.1c-.2.2 0 .6.3.6h1.9c.2 0 .4-.1.5-.3l7-10.1c.2-.3 0-.6-.3-.6h-.2z"/></svg>
+            {% endif %}
+
+            {% if section.settings.show_cod %}
+              <svg class="ai-footer-payment-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32"><rect width="48" height="32" rx="4" fill="#2C3E50"/><text x="24" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FFF" text-anchor="middle">COD</text></svg>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Premium footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand column"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Your trusted online shopping destination for quality products and exceptional service."
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_icons",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "header",
+      "content": "Quick links column"
+    },
+    {
+      "type": "text",
+      "id": "quick_links_heading",
+      "label": "Heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links_menu",
+      "label": "Menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Customer service column"
+    },
+    {
+      "type": "text",
+      "id": "customer_service_heading",
+      "label": "Heading",
+      "default": "Customer Service"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "WhatsApp number",
+      "info": "Include country code, e.g., +92 300 1234567"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email address"
+    },
+    {
+      "type": "text",
+      "id": "business_address",
+      "label": "Business address"
+    },
+    {
+      "type": "text",
+      "id": "working_hours",
+      "label": "Working hours",
+      "default": "Mon-Sat 9AM–7PM"
+    },
+    {
+      "type": "text",
+      "id": "return_policy_text",
+      "label": "Return policy text",
+      "default": "7 Days Easy Returns & Exchanges"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_support_text",
+      "label": "Custom support text"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "bottom_copyright",
+      "label": "Copyright text",
+      "info": "Leave blank to use default"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_visa",
+      "label": "Show Visa",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mastercard",
+      "label": "Show Mastercard",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_apple_pay",
+      "label": "Show Apple Pay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_google_pay",
+      "label": "Show Google Pay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_paypal",
+      "label": "Show PayPal",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cod",
+      "label": "Show COD",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_payment_image",
+      "label": "Custom payment image",
+      "info": "Overrides individual payment icons"
+    },
+    {
+      "type": "header",
+      "content": "Design"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#333333"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_border",
+      "label": "Show top border",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Text font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "label": "Line height",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "unit": "px",
+      "default": 0.5
+    },
+    {
+      "type": "header",
+      "content": "Animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "Enable fade-in animations",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium footer"
+    }
+  ]
+}
+{% endschema %}
