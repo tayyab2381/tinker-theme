@@ -362,7 +362,14 @@
       "quantity_maximum": "Daugiausiai {{ maximum }}",
       "in_cart": "krepšelyje",
       "default_title": "Numatytasis pavadinimas",
-      "sticky_add_to_cart": "Greito pridėjimo į krepšelį juosta"
+      "sticky_add_to_cart": "Greito pridėjimo į krepšelį juosta",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

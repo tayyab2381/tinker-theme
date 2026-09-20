@@ -331,7 +331,14 @@
       "quantity_maximum": "Maksimalno {{ maximum }}",
       "in_cart": "u košarici",
       "default_title": "Zadani naziv",
-      "sticky_add_to_cart": "Traka za brzo dodavanje u košaricu"
+      "sticky_add_to_cart": "Traka za brzo dodavanje u košaricu",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   },
   "fields": {

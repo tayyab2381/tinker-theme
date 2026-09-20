@@ -362,7 +362,14 @@
       "quantity_maximum": "Максимум: {{ maximum }}",
       "in_cart": "в корзине",
       "default_title": "Название по умолчанию",
-      "sticky_add_to_cart": "Быстрое добавление в корзину"
+      "sticky_add_to_cart": "Быстрое добавление в корзину",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

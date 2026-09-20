@@ -348,7 +348,14 @@
       "quantity_maximum": "Maximum: {{ maximum }}",
       "in_cart": "a kosárban",
       "default_title": "Alapértelmezett cím",
-      "sticky_add_to_cart": "Gyors hozzáadás a kosárhoz sáv"
+      "sticky_add_to_cart": "Gyors hozzáadás a kosárhoz sáv",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

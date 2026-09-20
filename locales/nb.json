@@ -348,7 +348,14 @@
       "quantity_maximum": "Maksimum {{ maximum }}",
       "in_cart": "i handlekurv",
       "default_title": "Standardtittel",
-      "sticky_add_to_cart": "Hurtiglinje for «Legg i handlekurv»"
+      "sticky_add_to_cart": "Hurtiglinje for «Legg i handlekurv»",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

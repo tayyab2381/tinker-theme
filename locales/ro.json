@@ -355,7 +355,14 @@
       "quantity_maximum": "Maxim {{ maximum }}",
       "in_cart": "în coș",
       "default_title": "Titlu implicit",
-      "sticky_add_to_cart": "Bara de adăugare rapidă în coș"
+      "sticky_add_to_cart": "Bara de adăugare rapidă în coș",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

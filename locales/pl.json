@@ -362,7 +362,14 @@
       "quantity_maximum": "Maksimum {{ maximum }}",
       "in_cart": "w koszyku",
       "default_title": "Tytuł domyślny",
-      "sticky_add_to_cart": "Pasek szybkiego dodawania do koszyka"
+      "sticky_add_to_cart": "Pasek szybkiego dodawania do koszyka",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

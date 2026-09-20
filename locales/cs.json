@@ -337,7 +337,14 @@
       "quantity_maximum": "Maximum: {{ maximum }}",
       "in_cart": "v košíku",
       "default_title": "Výchozí název",
-      "sticky_add_to_cart": "Panel Rychle přidat do košíku"
+      "sticky_add_to_cart": "Panel Rychle přidat do košíku",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   },
   "fields": {

@@ -19,6 +19,34 @@
 {% liquid
   assign widths = widths | default: '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
   assign ref_image_to_transition = ''
+  assign accessible_alt = ''
+  assign alt_segments = media.alt | default: '' | split: '['
+  for alt_segment in alt_segments
+    assign alt_segment_downcase = alt_segment | downcase
+    assign is_gallery_marker = false
+    if alt_segment_downcase contains 'gallery:hero]'
+      assign is_gallery_marker = true
+    elsif alt_segment_downcase contains 'gallery:lifestyle]'
+      assign is_gallery_marker = true
+    elsif alt_segment_downcase contains 'gallery:detail]'
+      assign is_gallery_marker = true
+    elsif alt_segment_downcase contains 'gallery:feature]'
+      assign is_gallery_marker = true
+    elsif alt_segment_downcase contains 'gallery:video]'
+      assign is_gallery_marker = true
+    endif
+
+    if is_gallery_marker
+      assign alt_remainder = alt_segment | split: ']' | last
+      assign accessible_alt = accessible_alt | append: alt_remainder
+    else
+      unless forloop.first
+        assign accessible_alt = accessible_alt | append: '['
+      endunless
+      assign accessible_alt = accessible_alt | append: alt_segment
+    endif
+  endfor
+  assign accessible_alt = accessible_alt | strip
   if settings.transition_to_main_product
     assign ref_image_to_transition = 'imagesToTransition[]'
   endif
@@ -42,7 +70,7 @@
     | image_url: width: 3840
     | image_tag:
       widths: widths,
-      alt: media.alt,
+      alt: accessible_alt,
       sizes: sizes,
       loading: loading,
       class: 'product-media__image',
@@ -69,7 +97,7 @@
               | image_url: width: 3840
               | image_tag:
                 widths: widths,
-                alt: media.alt,
+                alt: accessible_alt,
                 sizes: sizes,
                 loading: loading,
                 class: 'deferred-media__poster-image'

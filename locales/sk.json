@@ -362,7 +362,14 @@
       "quantity_maximum": "Maximálne {{ maximum }} ks",
       "in_cart": "v košíku",
       "default_title": "Predvolený názov",
-      "sticky_add_to_cart": "Panel rýchleho pridania do košíka"
+      "sticky_add_to_cart": "Panel rýchleho pridania do košíka",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

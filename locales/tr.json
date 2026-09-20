@@ -348,7 +348,14 @@
       "quantity_maximum": "Maksimum: {{ maximum }}",
       "in_cart": "sepette",
       "default_title": "Varsayılan Başlık",
-      "sticky_add_to_cart": "Sepete hızlı ekle çubuğu"
+      "sticky_add_to_cart": "Sepete hızlı ekle çubuğu",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

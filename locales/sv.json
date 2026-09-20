@@ -348,7 +348,14 @@
       "quantity_maximum": "Maximum {{ maximum }}",
       "in_cart": "i varukorg",
       "default_title": "Standardtitel",
-      "sticky_add_to_cart": "Fält för att lägga till snabbt i varukorgen"
+      "sticky_add_to_cart": "Fält för att lägga till snabbt i varukorgen",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

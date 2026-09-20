@@ -5,7 +5,8 @@
   block_id: block.id,
   block_shopify_attributes: block.shopify_attributes,
   block: block,
-  section: section
+  section: section,
+  editorial_media_groups: block.settings.editorial_media_groups
 %}
 
 {% schema %}
@@ -29,6 +30,13 @@
       ],
       "default": "grid",
       "info": "t:info.carousel_layout_on_mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "editorial_media_groups",
+      "label": "Editorial media groups",
+      "default": true,
+      "visible_if": "{{ block.settings.media_presentation == 'grid' }}"
     },
     {
       "type": "header",

@@ -15,6 +15,7 @@
   @param {number} [thumbnail_radius] - The border radius for thumbnails in pixels
   @param {string} [class] - Additional classes to apply to the controls
   @param {boolean} [secondary] - Whether the controls are secondary
+  @param {boolean} [eager_thumbnails] - Loads thumbnail images immediately instead of lazily.
 
   @example
   {%- render 'slideshow-controls', style: 'dots', item_count: 10 -%}
@@ -107,6 +108,12 @@
         >
           <div class="slideshow-controls__thumbnails">
             {% for media in thumbnails %}
+              {% liquid
+                assign thumbnail_loading = 'lazy'
+                if eager_thumbnails
+                  assign thumbnail_loading = 'eager'
+                endif
+              %}
               <button
                 class="slideshow-control button button-unstyled slideshow-controls__thumbnail"
                 aria-label="{{ 'accessibility.slide_status' | t: index: forloop.index, length: forloop.length }}"
@@ -123,10 +130,10 @@
                     assign focal_point_style = 'object-position: ' | append: media.presentation.focal_point | append: ';'
                   endif
                 %}
-                {{
+                  {{
                   media.preview_image
                   | image_url: width: 144
-                  | image_tag: loading: 'lazy', alt: media.alt, style: focal_point_style
+                  | image_tag: loading: thumbnail_loading, alt: media.alt, style: focal_point_style
                   | escape
                 }}
 

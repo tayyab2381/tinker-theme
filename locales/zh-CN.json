@@ -325,7 +325,14 @@
       "quantity_maximum": "最多 {{ maximum }} 个",
       "in_cart": "在购物车中",
       "default_title": "默认标题",
-      "sticky_add_to_cart": "快速添加到购物车栏"
+      "sticky_add_to_cart": "快速添加到购物车栏",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   },
   "fields": {

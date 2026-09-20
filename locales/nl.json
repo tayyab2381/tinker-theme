@@ -348,7 +348,14 @@
       "quantity_maximum": "Maximum van {{ maximum }}",
       "in_cart": "in winkelwagen",
       "default_title": "Standaardtitel",
-      "sticky_add_to_cart": "Balk voor snel toevoegen aan winkelwagen"
+      "sticky_add_to_cart": "Balk voor snel toevoegen aan winkelwagen",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   }
 }

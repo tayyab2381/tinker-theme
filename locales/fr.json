@@ -331,7 +331,14 @@
       "quantity_maximum": "Maximum de {{ maximum }}",
       "in_cart": "dans le panier",
       "default_title": "Titre par défaut",
-      "sticky_add_to_cart": "Barre d’ajout rapide au panier"
+      "sticky_add_to_cart": "Barre d’ajout rapide au panier",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   },
   "fields": {

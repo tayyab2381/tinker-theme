@@ -325,7 +325,14 @@
       "quantity_maximum": "최대 {{ maximum }}개",
       "in_cart": "카트에 있음",
       "default_title": "기본 이름",
-      "sticky_add_to_cart": "빠른 카트 추가 바"
+      "sticky_add_to_cart": "빠른 카트 추가 바",
+      "media_groups": {
+        "lifestyle": "In use",
+        "details": "Product details",
+        "features": "Designed for you",
+        "video": "See it in action",
+        "more_views": "More views"
+      }
     }
   },
   "fields": {
