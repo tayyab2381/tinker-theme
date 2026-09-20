@@ -275,8 +275,15 @@
 %}
 
 {% style %}
+  .shopify-block:has(> .ai-footer-{{ ai_gen_id }}) {
+    width: 100%;
+    align-self: stretch;
+  }
+
   .ai-footer-{{ ai_gen_id }} {
     display: block;
+    width: 100%;
+    box-sizing: border-box;
     background-color: {{ block.settings.background_color }};
     color: {{ block.settings.text_color }};
     padding-top: {{ block.settings.padding_top }}px;
@@ -287,15 +294,17 @@
   }
 
   .ai-footer-container-{{ ai_gen_id }} {
-    max-width: {{ block.settings.content_width }}px;
+    width: 100%;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 32px;
+    box-sizing: border-box;
   }
 
   .ai-footer-main-{{ ai_gen_id }} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
+    gap: clamp(48px, 8vw, 160px);
     padding-bottom: 50px;
     border-bottom: 1px solid {{ block.settings.divider_color }};
   }
@@ -658,6 +667,18 @@
                   {{ link.title }}
                 </a>
               </li>
+            {% endfor %}
+
+            {% assign footer_page_handles = 'shipping-policy,terms-of-service,refund-policy,privacy-policy,contact' | split: ',' %}
+            {% for page_handle in footer_page_handles %}
+              {% assign footer_page = pages[page_handle] %}
+              {% if footer_page != blank %}
+                <li>
+                  <a href="{{ footer_page.url }}" class="ai-footer-link-{{ ai_gen_id }}">
+                    {{ footer_page.title }}
+                  </a>
+                </li>
+              {% endif %}
             {% endfor %}
           </ul>
         {% endif %}
