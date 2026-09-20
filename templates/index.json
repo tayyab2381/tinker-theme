@@ -82,10 +82,9 @@
         "slide_LDEft3": {
           "type": "_slide",
           "name": "t:names.slide",
-          "disabled": true,
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/07_final_cta_1920x600_d0a57528-8fa3-4ba8-a986-6e73c3f9ca70.png",
+            "image_1": "shopify://shop_images/ChatGPT_Image_Sep_20_2026_10_48_56_PM.png",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
