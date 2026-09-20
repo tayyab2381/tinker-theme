@@ -796,7 +796,7 @@
                 "accordion_row_VyFryh": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Details",
+                    "heading": "Our Guarantee",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -805,7 +805,7 @@
                     "text_McjMWz": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>This product is crafted with quality materials to ensure durability and performance. Designed with your convenience in mind, it seamlessly fits into your everyday life.</p>",
+                        "text": "<p>Jo product pictures/videos mein dikhaya gaya hai, aapko bilkul wahi same product milega.<br/><br/>Agar product mein koi issue ho — jaise broken piece, damaged item, ya manufacturing defect — to hum 24 hours ke andar product replace kar denge.</p><p>💯 Customer satisfaction hamari priority hai.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
