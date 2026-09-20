@@ -835,7 +835,7 @@
                 "accordion_row_aaFerA": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Shipping & Returns",
+                    "heading": "Returns and Refunds",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -844,7 +844,7 @@
                     "text_DNPAct": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We strive to process and ship all orders in a timely manner, working diligently to ensure that your items are on their way to you as soon as possible. </p><p>We are committed to ensuring a positive shopping experience for all our customers. If for any reason you wish to return an item, we invite you to reach out to our team for assistance, and we will evaluate every return request with care and consideration.</p>",
+                        "text": "<p>We accept returns for <strong>store credit or exchange</strong> within <strong>7 days</strong> of receiving your order.</p><p><strong>Eligibility:</strong></p><ul><li>Item must be unused, in original condition, and in original packaging.</li><li>We cannot accept worn or damaged items (unless received that way).</li></ul><p><strong>Change of Mind:</strong></p><ul><li>Return shipping is the customer’s responsibility.</li><li>Store credit issued after item is inspected.</li></ul><p><strong>Damaged / Faulty Items:</strong></p><ul><li>Contact us within <strong>48 hours</strong> with clear photos.</li><li>We cover return shipping.</li><li>Replacement or store credit provided.</li></ul><p><strong>Sale Items:</strong><br/>All sale or discounted items are <strong>final sale</strong>.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
