@@ -1,0 +1,104 @@
+{{ 'product-story-sections.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign comfort_content = product.metafields.custom.product_comfort_story
+%}
+
+{% if section.blocks.size > 0 or section.settings.show_defaults %}
+  <section class="product-story-section product-story-section--comfort" style="--story-section-background: {{ section.settings.background_color }}; --story-radius: {{ section.settings.radius }}px; --story-padding-start: {{ section.settings.padding_top }}px; --story-padding-end: {{ section.settings.padding_bottom }}px;" {{ section.shopify_attributes }}>
+    <div class="product-story-section__inner">
+      <header class="product-story-section__header">
+        {% if section.settings.eyebrow != blank %}<p class="product-story-section__eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+        <h2 class="product-story-section__heading">{{ section.settings.heading }}</h2>
+        {% if comfort_content != blank %}
+          <div class="product-story-section__intro">{{ comfort_content | metafield_tag }}</div>
+        {% elsif section.settings.intro != blank %}
+          <div class="product-story-section__intro">{{ section.settings.intro }}</div>
+        {% endif %}
+      </header>
+
+      <div class="product-story-comfort__list">
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% if block.settings.heading != blank or block.settings.text != blank %}
+              {% capture story_image %}
+                {% render 'product-story-image', product: product, markers: '[gallery:lifestyle],[gallery:detail]', index: forloop.index0, fallback_image: block.settings.image, class: 'product-story__image', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'eager' %}
+              {% endcapture %}
+              <article class="product-story-comfort__item{% if block.settings.image_position == 'right' %} product-story-comfort__item--reverse{% endif %}" {{ block.shopify_attributes }}>
+                <div class="product-story-comfort__media">{{ story_image }}</div>
+                <div class="product-story-comfort__content">
+                  <span class="product-story-comfort__number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                  {% if block.settings.heading != blank %}<h3 class="product-story-section__heading" style="font-size: clamp(1.7rem, 3vw, 3rem);">{{ block.settings.heading }}</h3>{% endif %}
+                  {% if block.settings.text != blank %}<div class="product-story-card__text">{{ block.settings.text }}</div>{% endif %}
+                  {% if block.settings.button_label != blank and block.settings.button_link != blank %}<a class="button" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>{% endif %}
+                </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% assign comfort_titles = 'Relaxed reclining|Comfortable reading and screen time|Versatile body support' | split: '|' %}
+          {% assign comfort_texts = 'The sculpted shape helps support your body while you rest, stretch, or unwind.|Place the cushion beneath your upper body for a more relaxed angle while reading, watching television, or using your phone.|Use it beneath your upper body, hips, legs, or knees whenever you want a more supported resting position.' | split: '|' %}
+          {% for comfort_title in comfort_titles %}
+            {% capture story_image %}
+              {% render 'product-story-image', product: product, markers: '[gallery:lifestyle],[gallery:detail]', index: forloop.index0, class: 'product-story__image', sizes: '(min-width: 990px) 50vw, 100vw', loading: 'eager' %}
+            {% endcapture %}
+            <article class="product-story-comfort__item{% if forloop.index0 == 1 %} product-story-comfort__item--reverse{% endif %}">
+              <div class="product-story-comfort__media">{{ story_image }}</div>
+              <div class="product-story-comfort__content">
+                <span class="product-story-comfort__number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                <h3 class="product-story-section__heading" style="font-size: clamp(1.7rem, 3vw, 3rem);">{{ comfort_title }}</h3>
+                <div class="product-story-card__text"><p>{{ comfort_texts[forloop.index0] }}</p></div>
+              </div>
+            </article>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "How it improves comfort",
+  "tag": "section",
+  "class": "product-story-wrapper",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Made for everyday comfort" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "A more comfortable way to unwind" },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Thoughtful support for the ways you rest, read, relax, and reset.</p>" },
+    { "type": "checkbox", "id": "show_defaults", "label": "Show default comfort stories when no blocks are added", "default": true },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#ffffff" },
+    { "type": "range", "id": "radius", "label": "Corner radius", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_top", "label": "Top spacing", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 96 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom spacing", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 96 }
+  ],
+  "blocks": [
+    {
+      "type": "comfort_story",
+      "name": "Comfort story",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Relaxed reclining" },
+        { "type": "richtext", "id": "text", "label": "Description", "default": "<p>The sculpted shape helps support your body while you rest, stretch, or unwind.</p>" },
+        { "type": "image_picker", "id": "image", "label": "Fallback image" },
+        { "type": "select", "id": "image_position", "label": "Image position", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "right", "label": "Right" }
+        ], "default": "left" },
+        { "type": "text", "id": "button_label", "label": "Optional button label" },
+        { "type": "url", "id": "button_link", "label": "Optional button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it improves comfort",
+      "blocks": [
+        { "type": "comfort_story" },
+        { "type": "comfort_story", "settings": { "heading": "Comfortable reading and screen time", "text": "<p>Place the cushion beneath your upper body for a more relaxed angle while reading, watching television, or using your phone.</p>", "image_position": "right" } },
+        { "type": "comfort_story", "settings": { "heading": "Versatile body support", "text": "<p>Use it beneath your upper body, hips, legs, or knees whenever you want a more supported resting position.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

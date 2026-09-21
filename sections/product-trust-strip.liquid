@@ -1,0 +1,103 @@
+{{ 'product-story-sections.css' | asset_url | stylesheet_tag }}
+
+{% if section.blocks.size > 0 or section.settings.show_defaults %}
+  <section
+    class="product-story-section product-story-section--trust"
+    style="--story-section-background: {{ section.settings.background_color }}; --story-padding-start: {{ section.settings.padding_top }}px; --story-padding-end: {{ section.settings.padding_bottom }}px; background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};"
+    aria-label="{{ section.settings.heading | escape }}"
+    {{ section.shopify_attributes }}
+  >
+    <div class="product-story-section__inner">
+      {% if section.settings.heading != blank %}
+        <h2 class="visually-hidden">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      <div class="product-story-trust__list">
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            <div class="product-story-trust__item" {{ block.shopify_attributes }}>
+              <div class="product-story-trust__icon">
+                {% render 'icon-or-image',
+                  icon: block.settings.icon,
+                  image_upload: block.settings.image,
+                  width: 22,
+                  class_name: 'product-story-trust__icon-media'
+                %}
+              </div>
+              <div>
+                {% if block.settings.link != blank %}<a href="{{ block.settings.link }}" class="product-story-trust__link">{% endif %}
+                  <h3 class="product-story-trust__title">{{ block.settings.title }}</h3>
+                  {% if block.settings.text != blank %}<p class="product-story-trust__text">{{ block.settings.text }}</p>{% endif %}
+                {% if block.settings.link != blank %}</a>{% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          {% assign trust_defaults = 'Open parcel before payment|Cash on delivery available|Fast delivery across Pakistan|Easy returns and exchanges' | split: '|' %}
+          {% assign trust_icons = 'box|truck|return|lock' | split: '|' %}
+          {% for trust_title in trust_defaults %}
+            <div class="product-story-trust__item">
+              <div class="product-story-trust__icon">
+                <svg class="product-story-trust__icon-media" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20">
+                  {% render 'icon', icon: trust_icons[forloop.index0] %}
+                </svg>
+              </div>
+              <div>
+                <h3 class="product-story-trust__title">{{ trust_title }}</h3>
+                <p class="product-story-trust__text">A thoughtful experience from checkout to delivery.</p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product trust strip",
+  "tag": "section",
+  "class": "product-story-wrapper",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Accessible heading", "default": "Shopping with confidence" },
+    { "type": "checkbox", "id": "show_defaults", "label": "Show default trust points when no blocks are added", "default": true },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#111111" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#ffffff" },
+    { "type": "range", "id": "padding_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 24 }
+  ],
+  "blocks": [
+    {
+      "type": "trust_point",
+      "name": "Trust point",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "box", "label": "Box" },
+          { "value": "truck", "label": "Delivery" },
+          { "value": "return", "label": "Returns" },
+          { "value": "lock", "label": "Secure" },
+          { "value": "heart", "label": "Heart" },
+          { "value": "none", "label": "None" }
+        ], "default": "box" },
+        { "type": "image_picker", "id": "image", "label": "Optional icon image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Open parcel before payment" },
+        { "type": "text", "id": "text", "label": "Supporting text", "default": "Check your parcel with confidence." },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product trust strip",
+      "blocks": [
+        { "type": "trust_point" },
+        { "type": "trust_point", "settings": { "icon": "truck", "title": "Cash on delivery available", "text": "Pay when your order arrives." } },
+        { "type": "trust_point", "settings": { "icon": "return", "title": "Fast delivery across Pakistan", "text": "Reliable delivery updates included." } },
+        { "type": "trust_point", "settings": { "icon": "lock", "title": "Easy returns and exchanges", "text": "Simple support when you need it." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
