@@ -1006,6 +1006,7 @@
         "eyebrow": "Thoughtfully designed",
         "heading": "Comfort that feels considered",
         "intro": "<p>Made for slow mornings, relaxed evenings, and the small moments when better support makes a difference.</p>",
+        "image": "shopify://shop_images/01-face-to-face-support-4x5.png",
         "show_defaults": true,
         "background_color": "#ffffff",
         "card_background_color": "#f8f4f1",
@@ -1022,7 +1023,7 @@
           "settings": {
             "heading": "Relaxed reclining",
             "text": "<p>The sculpted shape helps support your body while you rest, stretch, or unwind.</p>",
-            "image": "shopify://shop_images/ChatGPTImageSep15_2026_11_56_25PM_1.png",
+            "image": "shopify://shop_images/02-hip-elevation-couple-4x3.png",
             "image_position": "left",
             "button_label": "",
             "button_link": ""
@@ -1033,6 +1034,7 @@
           "settings": {
             "heading": "Comfortable reading and screen time",
             "text": "<p>Place the cushion beneath your upper body for a more relaxed angle while reading, watching television, or using your phone.</p>",
+            "image": "shopify://shop_images/03-side-position-support-4x3.png",
             "image_position": "right",
             "button_label": "",
             "button_link": ""
@@ -1043,6 +1045,7 @@
           "settings": {
             "heading": "Versatile body support",
             "text": "<p>Use it beneath your upper body, hips, legs, or knees whenever you want a more supported resting position.</p>",
+            "image": "shopify://shop_images/04-forward-support-couple-4x3.png",
             "image_position": "left",
             "button_label": "",
             "button_link": ""
