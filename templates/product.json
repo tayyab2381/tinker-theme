@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-/* Product story sections are intentionally kept as separate editor sections. */
 {
   "sections": {
     "main": {
@@ -909,53 +908,283 @@
     "product_trust_strip": {
       "type": "product-trust-strip",
       "blocks": {
-        "trust_1": { "type": "trust_point", "settings": { "icon": "box", "title": "Open parcel before payment", "text": "Check your parcel with confidence." } },
-        "trust_2": { "type": "trust_point", "settings": { "icon": "truck", "title": "Cash on delivery available", "text": "Pay when your order arrives." } },
-        "trust_3": { "type": "trust_point", "settings": { "icon": "return", "title": "Fast delivery across Pakistan", "text": "Reliable delivery updates included." } },
-        "trust_4": { "type": "trust_point", "settings": { "icon": "lock", "title": "Easy returns and exchanges", "text": "Simple support when you need it." } }
+        "trust_1": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "box",
+            "title": "Open parcel before payment",
+            "text": "Check your parcel with confidence.",
+            "link": ""
+          }
+        },
+        "trust_2": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "truck",
+            "title": "Cash on delivery available",
+            "text": "Pay when your order arrives.",
+            "link": ""
+          }
+        },
+        "trust_3": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "return",
+            "title": "Fast delivery across Pakistan",
+            "text": "Reliable delivery updates included.",
+            "link": ""
+          }
+        },
+        "trust_4": {
+          "type": "trust_point",
+          "settings": {
+            "icon": "lock",
+            "title": "Easy returns and exchanges",
+            "text": "Simple support when you need it.",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4"]
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
+      "settings": {
+        "heading": "Shopping with confidence",
+        "show_defaults": true,
+        "background_color": "#111111",
+        "text_color": "#ffffff",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
     },
     "product_why_choose": {
       "type": "product-why-choose",
       "blocks": {
-        "benefit_1": { "type": "benefit", "settings": { "icon": "heart", "title": "Ergonomic body support", "text": "<p>A sculpted profile helps you settle into a relaxed position.</p>" } },
-        "benefit_2": { "type": "benefit", "settings": { "icon": "plant", "title": "Comfortable elevated positioning", "text": "<p>Designed to support everyday reclining, reading, and unwinding.</p>" } },
-        "benefit_3": { "type": "benefit", "settings": { "icon": "star", "title": "Premium soft-touch cover", "text": "<p>A soft, refined finish feels at home in a modern bedroom.</p>" } },
-        "benefit_4": { "type": "benefit", "settings": { "icon": "box", "title": "Stable, purpose-built shape", "text": "<p>A broad base helps the cushion stay steady where you place it.</p>" } }
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Ergonomic body supportt",
+            "text": "<p>A sculpted profile helps you settle into a relaxed position.</p>"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "plant",
+            "title": "Comfortable elevated positioning",
+            "text": "<p>Designed to support everyday reclining, reading, and unwinding.</p>"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "Premium soft-touch cover",
+            "text": "<p>A soft, refined finish feels at home in a modern bedroom.</p>"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "box",
+            "title": "Stable, purpose-built shape",
+            "text": "<p>A broad base helps the cushion stay steady where you place it.</p>"
+          }
+        }
       },
-      "block_order": ["benefit_1", "benefit_2", "benefit_3", "benefit_4"]
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4"
+      ],
+      "settings": {
+        "eyebrow": "Thoughtfully designed",
+        "heading": "Comfort that feels considered",
+        "intro": "<p>Made for slow mornings, relaxed evenings, and the small moments when better support makes a difference.</p>",
+        "show_defaults": true,
+        "background_color": "#ffffff",
+        "card_background_color": "#f8f4f1",
+        "radius": 20,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "product_comfort_story": {
       "type": "product-comfort-story",
       "blocks": {
-        "comfort_1": { "type": "comfort_story", "settings": { "heading": "Relaxed reclining", "text": "<p>The sculpted shape helps support your body while you rest, stretch, or unwind.</p>" } },
-        "comfort_2": { "type": "comfort_story", "settings": { "heading": "Comfortable reading and screen time", "text": "<p>Place the cushion beneath your upper body for a more relaxed angle while reading, watching television, or using your phone.</p>", "image_position": "right" } },
-        "comfort_3": { "type": "comfort_story", "settings": { "heading": "Versatile body support", "text": "<p>Use it beneath your upper body, hips, legs, or knees whenever you want a more supported resting position.</p>" } }
+        "comfort_1": {
+          "type": "comfort_story",
+          "settings": {
+            "heading": "Relaxed reclining",
+            "text": "<p>The sculpted shape helps support your body while you rest, stretch, or unwind.</p>",
+            "image_position": "left",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "comfort_2": {
+          "type": "comfort_story",
+          "settings": {
+            "heading": "Comfortable reading and screen time",
+            "text": "<p>Place the cushion beneath your upper body for a more relaxed angle while reading, watching television, or using your phone.</p>",
+            "image_position": "right",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "comfort_3": {
+          "type": "comfort_story",
+          "settings": {
+            "heading": "Versatile body support",
+            "text": "<p>Use it beneath your upper body, hips, legs, or knees whenever you want a more supported resting position.</p>",
+            "image_position": "left",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
       },
-      "block_order": ["comfort_1", "comfort_2", "comfort_3"]
+      "block_order": [
+        "comfort_1",
+        "comfort_2",
+        "comfort_3"
+      ],
+      "settings": {
+        "eyebrow": "Made for everyday comfort",
+        "heading": "A more comfortable way to unwind",
+        "intro": "<p>Thoughtful support for the ways you rest, read, relax, and reset.</p>",
+        "show_defaults": true,
+        "background_color": "#ffffff",
+        "radius": 24,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "product_how_to_use": {
       "type": "product-how-to-use",
       "blocks": {
-        "step_1": { "type": "step", "settings": { "heading": "Place it on a stable surface", "text": "<p>Set the cushion on a firm bed or surface before getting comfortable.</p>" } },
-        "step_2": { "type": "step", "settings": { "heading": "Position your body comfortably", "text": "<p>Use the raised shape beneath your upper body, hips, legs, or knees.</p>" } },
-        "step_3": { "type": "step", "settings": { "heading": "Adjust until properly supported", "text": "<p>Make small adjustments until the position feels natural and supported.</p>" } }
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "heading": "Place it on a stable surface",
+            "text": "<p>Set the cushion on a firm bed or surface before getting comfortable.</p>"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "heading": "Position your body comfortably",
+            "text": "<p>Use the raised shape beneath your upper body, hips, legs, or knees.</p>"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "heading": "Adjust until properly supported",
+            "text": "<p>Make small adjustments until the position feels natural and supported.</p>"
+          }
+        }
       },
-      "block_order": ["step_1", "step_2", "step_3"]
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "eyebrow": "Simple from the start",
+        "heading": "Settle in comfortably",
+        "intro": "<p>A simple three-step ritual for finding the position that feels right for you.</p>",
+        "show_defaults": true,
+        "background_color": "#ffffff",
+        "card_background_color": "#f8f4f1",
+        "radius": 24,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "product_specifications": {
       "type": "product-specifications",
       "blocks": {
-        "spec_1": { "type": "specification", "settings": { "label": "Dimensions", "value": "Add product dimensions" } },
-        "spec_2": { "type": "specification", "settings": { "label": "Product weight", "value": "Add product weight" } },
-        "spec_3": { "type": "specification", "settings": { "label": "Cover material", "value": "Premium soft-touch cover" } },
-        "spec_4": { "type": "specification", "settings": { "label": "Filling or foam", "value": "Purpose-built supportive fill" } },
-        "spec_5": { "type": "specification", "settings": { "label": "Cleaning", "value": "Spot clean as needed" } },
-        "spec_6": { "type": "specification", "settings": { "label": "Recommended surface", "value": "Firm bed or stable surface" } },
-        "spec_7": { "type": "specification", "settings": { "label": "Package contents", "value": "1 ergonomic support cushion" } }
+        "spec_1": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Dimensions",
+            "value": "Add product dimensions"
+          }
+        },
+        "spec_2": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Product weight",
+            "value": "Add product weight"
+          }
+        },
+        "spec_3": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Cover material",
+            "value": "Premium soft-touch cover"
+          }
+        },
+        "spec_4": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Filling or foam",
+            "value": "Purpose-built supportive fill"
+          }
+        },
+        "spec_5": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Cleaning",
+            "value": "Spot clean as needed"
+          }
+        },
+        "spec_6": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Recommended surface",
+            "value": "Firm bed or stable surface"
+          }
+        },
+        "spec_7": {
+          "type": "specification",
+          "settings": {
+            "icon": "none",
+            "label": "Package contents",
+            "value": "1 ergonomic support cushion"
+          }
+        }
       },
-      "block_order": ["spec_1", "spec_2", "spec_3", "spec_4", "spec_5", "spec_6", "spec_7"]
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6",
+        "spec_7"
+      ],
+      "settings": {
+        "eyebrow": "Details that matter",
+        "heading": "Made to fit beautifully into your routine",
+        "intro": "<p>Clear details so you can choose with confidence.</p>",
+        "show_defaults": true,
+        "background_color": "#ffffff",
+        "radius": 24,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
     },
     "section_NaqU9X": {
       "type": "section",
